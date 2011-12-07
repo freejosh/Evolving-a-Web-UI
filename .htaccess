@@ -1,0 +1,21 @@
+Options -Indexes
+
+RewriteEngine on
+
+# Force domain
+#RewriteCond %{HTTP_HOST} !^evolve\.joshfreeman\.ca [NC]
+#RewriteCond %{HTTP_HOST} !^$
+#RewriteRule ^(.*)$ http://evolve.joshfreeman.ca/$1 [R=301,L]
+
+RewriteBase /
+
+# Do not process these files further
+RewriteRule \.(php|css|jpe?g|gif|png|js|flv|mp3|ico|htc)$ - [L]
+RewriteRule ^index.php$ - [L]
+RewriteRule ^robots.txt$ - [L]
+
+# The URL rules
+RewriteRule ^([^/]+)$ /index.php?page=$1 [L]
+RewriteRule ^view/([^/]+)$ /index.php?page=view&genome=$1 [L]
+RewriteRule ^genome/([^/]+)$ /index.php?page=genome&genome=$1 [L]
+RewriteRule ^view/([^/]+)/([^/]+)$ /index.php?page=view&genome=$1&content=$2 [L]
