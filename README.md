@@ -1,6 +1,8 @@
 # Evolving a Web User Interface - Project for FACS4930 at York University
 
-This repository contains all the code needed to run this project, except for the SQL to set up the database (which will be added later).
+A live version of this project is online at http://evolve.joshfreeman.ca.
+
+This repository contains all the code needed to run it, except for the SQL to set up the database (which will be added later).
 
 ## Project Background & Concept
 
