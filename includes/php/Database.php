@@ -5,8 +5,7 @@ require_once PHP_INCLUDES_DIR.'Genome.php';
 class Database extends Database_Connection {
 
 	function __construct($new_link = true) {
-		if ($_SERVER['SERVER_NAME'] == 'evolve.joshfreeman.ca.dev') return parent::__construct('evolve', 'root', 'root', 'localhost', $new_link);//local
-		else if ($_SERVER['SERVER_NAME'] == 'evolve.joshfreeman.ca') return parent::__construct('jfreem_evolve', 'jfreem_evolve', 'Ev0lv3', 'localhost', $new_link);//polurnet
+		return parent::__construct('db_name', 'db_user', 'db_pass', 'db_address', $new_link);
 	}
 
 	// create a new genome object by passing array corresponding to database columns
