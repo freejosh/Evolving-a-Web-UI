@@ -68,7 +68,7 @@ class Genome {
 	private function generateHTML($arr, &$index) {
 		$element = $arr[$index];
 		if (isset($element['replacement'])) $element['text'] = preg_replace('/{[^}]+}/', $element['replacement'], $element['text']);
-		
+
 		if ($element['type'] == 'tag') {
 			$this->html .= '<';
 			if (isset($element['closing']) && $element['closing']) $this->html .= '/'.$element['text'];
@@ -84,11 +84,11 @@ class Genome {
 			else while (isset($arr[$index + 1]) && ($arr[$index + 1]['type'] == 'css')) $this->generateHTML($arr, ++$index);
 			$this->html .= '"';
 		} else if ($element['type'] == 'val') {
-			$element['text'] = str_replace('{content}', nl2br($this->pageContent, false), $element['text']);
+			$element['text'] = str_replace('{content}', $this->pageContent, $element['text']);
 			$this->html .= $element['text'];
 		} else if ($element['type'] == 'css') $this->html .= $element['text'].';';
 		else if ($element['type'] == 'url') $this->html .= $this->urlPrefix.$element['text'];
-		
+
 		return $element['type'];
 	}
 
@@ -127,7 +127,7 @@ class Genome {
 	function getParents() {
 		return array($this->parent1, $this->parent2);
 	}
-	
+
 	function setParents($parent1, $parent2) {
 		$this->parent1 = intval($parent1);
 		$this->parent2 = intval($parent2);
