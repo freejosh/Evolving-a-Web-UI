@@ -5,6 +5,7 @@ ignore_user_abort(true);
 set_time_limit(0);
 file_put_contents(RECOMBINING_FLAG, 1);
 
+$db = new Database();
 $currentGenomes = $db->getCurrentGenerationGenomes();// select genome IDs from current generation
 
 $generationIDs = '';
@@ -57,14 +58,14 @@ if ($newgeneration) {
 			$timeStarted = 0;
 			$pagesVisited = array();
 		}
-		
+
 		if ($row['data']['type'] == 'click') {
 			if ($row['data']['target'] == 'A') {
 				$f += 10;// +10 for clicking on an actual link
 				if (isset($analytics[$i + 1]) && $analytics[$i + 1]['data']['type'] == 'load') $f += 10;// +10 for that link going to a new page
 			} else $f -= 10;// -10 for clicking somewhere other than a link
 		}
-		
+
 		$fitness[$row['genome']] += $f;
 	}
 
