@@ -1,8 +1,12 @@
 # Evolving a Web User Interface - Project for FACS4930 at York University
 
-A live version of this project is online at http://evolve.joshfreeman.ca.
+This project explores the idea of programmatically changing how a web page is constructed based on data about its usage.
 
-This repository contains all the code needed to run it, except for the SQL to set up the database (which will be added later).
+To set up the project create a database with the structure defined in [jfreem_evolve.sql](jfreem_evolve.sql) (also contains data from the initial run of the project - can be discarded) and enter your database connection details in [Database.php](/includes/php/Database.php).
+
+The number of times each genome must be viewed before a new generation is constructed is set to 5 and can be changed in [check-generation.php](check-generation.php#L19). 5 is much too low for any useful data to emerge but during the initial run I wanted a few generations to be produced and, since the project relies on human visitors, didn't have the resources to generate that much traffic.
+
+The project also relies on the [HTML Validator PEAR library](http://pear.php.net/package/Services_W3C_HTMLValidator), the include path of which can be changed in [Genome.php](/includes/php/Genome.php). 
 
 ## Project Background & Concept
 
